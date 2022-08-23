@@ -1,4 +1,4 @@
-## colorblender.py
+## colorblender.lua
 
 A lua version of [colorblender.py](https://github.com/ChristianChiarulli/colorblender)
 
