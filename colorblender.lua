@@ -1,4 +1,3 @@
----@diagnostic disable: cast-local-type
 local function removeString(str, pattern)
 	return string.gsub(str, pattern, "")
 end
@@ -14,6 +13,7 @@ local function hex_to_rgb(hex)
 	local g = string.sub(hex, 3, 4)
 	local b = string.sub(hex, 5, 6)
 
+	---@diagnostic disable: cast-local-type
 	r = tohexa(r)
 	g = tohexa(g)
 	b = tohexa(b)
@@ -41,4 +41,30 @@ local function blend(hex_fg, hex_bg, alpha)
 	return rgb_to_hex(blend_channel(1), blend_channel(2), blend_channel(3))
 end
 
-print(blend("#ffffff", "#000000", 0.5))
+local function main()
+	local function has_args()
+		if #arg >= 3 then
+			return true
+		end
+
+		return false
+	end
+
+	if not has_args() then
+		print(arg[1], arg[2], arg[3])
+
+		return io.write("colorblender needs three arguments, foreground, background and alpha")
+	end
+
+	local fg = arg[1]
+	local bg = arg[2]
+	local alpha = tonumber(arg[3])
+
+	if alpha < 0 or alpha > 1 then
+		return io.write("Alpha must be between 0 and 1")
+	end
+
+	print(blend(fg, bg, alpha))
+end
+
+main()
