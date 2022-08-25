@@ -17,12 +17,12 @@ The closer the alpha is to `1` the more prominent the foreground will be in the 
 *NOTE:* `#` is interpreted as a comment so we need to wrap the input in quotes
 
 ```sh
-$ colorblender.lua '#ffffff' '#000000' 0.1
+$ lua colorblender.lua '#ffffff' '#000000' 0.1
 #1a1a1a
 ```
 
 ```sh
-$ colorblender.lua ffffff 000000 0.1
+$ lua colorblender.lua ffffff 000000 0.1
 #1a1a1a
 ```
 

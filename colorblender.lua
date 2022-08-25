@@ -1,4 +1,4 @@
-local function removeString(str, pattern)
+local function remove_string(str, pattern)
 	return string.gsub(str, pattern, "")
 end
 
@@ -7,7 +7,7 @@ local function tohexa(str)
 end
 
 local function hex_to_rgb(hex)
-	hex = removeString(hex, "#")
+	hex = remove_string(hex, "#")
 
 	local r = string.sub(hex, 1, 2)
 	local g = string.sub(hex, 3, 4)
